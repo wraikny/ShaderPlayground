@@ -1,4 +1,4 @@
-﻿uniform sampler2D g_texture;
+uniform sampler2D g_texture;
 
 in vec4 inPosition;
 in vec2 inUV;
@@ -15,10 +15,8 @@ float rand(vec2 co, vec2 t) {
 }
 
 vec3 blockNoiseColor() {
-    // vec2 uv = inUV * windowSize;
     float a = rand(floor(inUV * 10), vec2(0, 0));
     float b = rand(floor(inUV * 10), vec2(3.2374, 5.1293));
-    // vec2 b = floor(inUV * 2);
     return vec3(a, b, (1.0 + sin(time))/2.0);
 }
 
