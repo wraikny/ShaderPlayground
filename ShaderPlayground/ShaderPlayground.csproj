@@ -47,10 +47,14 @@
     <None Include="ShaderCode\01\sample.hlsl">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="ShaderCode\02\sample.glsl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ShaderCode\" />
     <Folder Include="ShaderCode\01\" />
+    <Folder Include="ShaderCode\02\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\AltseedDotNet.1.1.5.3\build\net45\AltseedDotNet.targets" Condition="Exists('..\packages\AltseedDotNet.1.1.5.3\build\net45\AltseedDotNet.targets')" />
