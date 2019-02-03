@@ -3,40 +3,15 @@ using System.Linq;
 
 namespace ShaderPlayground
 {
-    public class CustomPostEffect : asd.PostEffect
+    public class CustomPostEffect : PostEffectFromFile
     {
-        private string filename;
-
-        private asd.Shader2D shader;
-        private asd.Material2D material2d;
 
         private float time;
 
         public CustomPostEffect(string filename)
+            : base(filename)
         {
-            this.filename = filename;
-            SetMaterial();
-        }
-
-        private void SetMaterial()
-        {
-            if(asd.Engine.File.Exists(filename))
-            {
-                {
-                    var buf = asd.Engine.File.CreateStaticFile(filename).Buffer;
-                    var s = System.Text.Encoding.UTF8.GetString(buf);
-                    
-                    // シェーダーをHLSL/GLSLから生成する。
-                    shader = asd.Engine.Graphics.CreateShader2D(s);
-                    
-                    // シェーダーからマテリアルを生成する。
-                    material2d = asd.Engine.Graphics.CreateMaterial2D(shader);
-                }
-            }
-            else
-            {
-                Console.WriteLine($"File '{filename}' does not exist");
-            }
+            time = 0.0f;
         }
 
         protected override void OnDraw(asd.RenderTexture2D dst, asd.RenderTexture2D src)
